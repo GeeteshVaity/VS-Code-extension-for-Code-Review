@@ -1,0 +1,74 @@
+{
+  "name": "cot-deep-review",
+  "displayName": "CoT Deep Code Review",
+  "description": "Autonomous asynchronous code review & refactoring driven by Chain-of-Thought prompting over the Groq API (llama-3.3-70b-versatile).",
+  "version": "0.1.0",
+  "publisher": "cot-reviewer",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.140.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning"
+  ],
+  "keywords": [
+    "chain-of-thought",
+    "code-review",
+    "refactoring",
+    "groq",
+    "async",
+    "race-condition"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cot.runDeepReview",
+        "title": "CoT: Run Deep Code Review",
+        "icon": "$(search)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "cot.runDeepReview",
+          "when": "editorHasSelection",
+          "group": "cotDeepReview@1"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "cot.runDeepReview"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CoT Deep Code Review",
+      "properties": {
+        "cotReviewer.groqApiKey": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "markdownDescription": "Groq Cloud **Developer API Key** used to authenticate requests to `https://api.groq.com`. Create one at [console.groq.com/keys](https://console.groq.com/keys). If left empty, the extension prompts for the key the first time a review runs."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build -- --production",
+    "build": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.fixtures.json",
+    "test": "esbuild test/groqService.test.ts test/webview.test.ts test/pipeline.test.ts --bundle --platform=node --target=node18 --format=cjs --outdir=dist-test --log-level=warning && node dist-test/groqService.test.js && node dist-test/webview.test.js && node dist-test/pipeline.test.js",
+    "package": "vsce package --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.140.0",
+    "@vscode/vsce": "^3.0.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.0"
+  }
+}

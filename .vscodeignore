@@ -1,0 +1,17 @@
+.vscode/**
+.vscode-test/**
+.freebuff/**
+src/**
+test/**
+fixtures/**
+dist-test/**
+esbuild.js
+tsconfig.json
+tsconfig.fixtures.json
+node_modules/**
+.gitignore
+**/*.map
+**/*.ts
+!node_modules/**/LICENSE
+*.vsix
+freebuff.md
