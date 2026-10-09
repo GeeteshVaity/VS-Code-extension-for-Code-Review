@@ -2,7 +2,7 @@
 
 A VS Code extension for **autonomous asynchronous code review & refactoring** using
 Chain-of-Thought (CoT) prompt engineering against the Groq Cloud API
-(`llama-3.3-70b-versatile`).
+(`openai/gpt-oss-120b`).
 
 ## What it does
 

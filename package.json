@@ -1,7 +1,7 @@
 {
   "name": "cot-deep-review",
   "displayName": "CoT Deep Code Review",
-  "description": "Autonomous asynchronous code review & refactoring driven by Chain-of-Thought prompting over the Groq API (llama-3.3-70b-versatile).",
+  "description": "Autonomous asynchronous code review & refactoring driven by Chain-of-Thought prompting over the Groq API (openai/gpt-oss-120b).",
   "version": "0.1.0",
   "publisher": "cot-reviewer",
   "license": "MIT",
@@ -61,7 +61,7 @@
     "build": "node esbuild.js",
     "watch": "node esbuild.js --watch",
     "typecheck": "tsc --noEmit && tsc -p tsconfig.fixtures.json",
-    "test": "esbuild test/groqService.test.ts test/webview.test.ts test/pipeline.test.ts --bundle --platform=node --target=node18 --format=cjs --outdir=dist-test --log-level=warning && node dist-test/groqService.test.js && node dist-test/webview.test.js && node dist-test/pipeline.test.js",
+    "test": "node test/run-tests.js",
     "package": "vsce package --allow-missing-repository"
   },
   "devDependencies": {

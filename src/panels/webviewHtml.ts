@@ -28,7 +28,7 @@ function embedJson(value: unknown): string {
     .replace(/\u2029/g, '\\u2029');
 }
 
-const MODEL_CHIP = 'llama-3.3-70b-versatile';
+const MODEL_CHIP = 'openai/gpt-oss-120b';
 
 function statusChip(payload: WebviewPayload): string {
   switch (payload.status) {

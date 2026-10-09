@@ -18,7 +18,7 @@
 export const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
 
 /** Groq model used for the review. */
-export const GROQ_MODEL = 'llama-3.3-70b-versatile';
+export const GROQ_MODEL = 'openai/gpt-oss-120b';
 
 /** Default request timeout (the API typically answers in ~1-2s). */
 export const DEFAULT_TIMEOUT_MS = 60_000;
